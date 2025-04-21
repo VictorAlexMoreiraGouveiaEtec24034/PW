@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 1</title>
+    <!-- CSS do Bootstrap -->
+    <link rel="stylesheet" href="Css/bootstrap.min.css">
+</head>
+<body> 
+    <div class="container">
+
+        <div class="row justify-content-center">
+            <div class="col-md-6 mt-5">
+
+                <!--Titúlo do -->
+                <header>
+                    <h2 class="text-center mb-4">Formulário de Registro</h2>
+                </header>
+
+                <!--Sistema de login-->
+                <form action="" id="form_1" method="">
+                    <div class="mb-3">
+                        <label for="email" class="form-label">E-mail</label>
+                        <input type="email" class="form-control" id="email" name="email" placeholder="Insira seu e-mail" required>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="senha" class="form-label">Senha</label>
+                        <input type="password" class="form-control" id="senha" name="senha" required>
+                    </div>
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-primary">Enviar</button>
+                    </div>
+                </form>
+            </div>
+            
+            <div id="load" style="display:none; margin-top:10px">
+                Por favor, aguarde... 
+                <img src="./assets/Animation/loaders.svg" style="width:24px">
+            </div>
+        
+            <div id="response"></div>
+            
+        </div>
+
+
+    </div>
+
+
+    <script src="./Js/jquery-3.7.1.js"></script>
+    <script src="./Js/popper.min.js"></script>
+    <script src="./Js/bootstrap.min.js"></script>
+        <!-- JavaScript do Bootstrap (opcional) -->
+        <script src="index.js"></script>
+</body>
+</html>
+

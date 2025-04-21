@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário de Registro</title>
+    <link href="Css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body> 
+
+    <div class="container mt-4">
+        <h2>Formulário de Registro</h2>
+        <form id="form_1" method="post">
+            <div class="mb-3">
+                <label for="email" class="form-label">E-mail</label>
+                <input type="email" id="email" name="email" class="form-control" placeholder="Insira seu e-mail"> <!--required - Parametro para preenchimento obrigatório-->
+            </div>
+            
+            <div class="mb-3">
+                <label for="senha" class="form-label">Senha</label>
+                <input type="password" id="senha" name="senha" class="form-control"> <!--required - Parametro para preenchimento obrigatório-->
+            </div>
+            <button type="submit" class="btn btn-primary">Enviar</button>
+        </form>
+    </div>
+
+    <div id="load" style="display:none; margin-top:10px">
+        Por favor, aguarde... 
+        <img src="loaders.svg?fill=maroon&ic=tail-spin" style="width:24px">
+    </div>
+        <div id="response"></div>
+
+    <script src="Js/popper.min.js"></script>
+    <script src="Js/bootstrap.min.js"></script>
+    <script src="Js/jquery-3.7.1.js"></script>
+
+<script>
+/* Attach a submit handler to the form */
+$("#form_1").submit(function(event) {
+    var ajaxRequest;
+
+    /* Stop form from submitting normally */
+    event.preventDefault();
+
+    /* Clear result div*/
+    $("#response").html('');
+
+    mostraAnimacao();
+
+    /* Get from elements values */
+    var values = $(this).serialize();
+
+       ajaxRequest= $.ajax({
+            url: "arquivo.php",
+            type: "post",
+            data: values,
+            beforeSend: function(){
+                mostraAnimacao()
+           }
+        });
+
+   ajaxRequest.done(function (response, textStatus, jqXHR){
+             ocultaAnimacao();
+             $("#response").html(response);            
+    });
+
+    ajaxRequest.fail(function (){ 
+        ocultaAnimacao();       
+        $("#response").html('Erro ao enviar os dados.');
+    });
+});
+
+
+function mostraAnimacao(){
+    setTimeout(function() {
+                    $("#load").show();
+                }, 200)
+}
+
+function ocultaAnimacao(){
+    setTimeout(function() {
+                    $("#load").hide();
+                }, 100)
+}
+    </script>
+</body>
+</html>
