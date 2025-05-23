@@ -1,0 +1,9 @@
+Nova pasta -> View
+Nova Pasta -> ArquivosDiversos
+Nova Pasta -> Core
+Nova Pasta -> Funcoes
+Nova Pasta -> Banco
+
+
+
+ALTER TABLE usuarios ADD CONSTRAINT email
