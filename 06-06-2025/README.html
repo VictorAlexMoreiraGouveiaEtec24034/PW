@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Implementação de Segurança na Aplicação PHP</title>
+<style>
+  body { font-family: Arial, sans-serif; margin: 20px; line-height: 1.6; }
+  h1, h2, h3 { color: #2c3e50; }
+  hr { margin: 20px 0; }
+  ul { margin-left: 20px; }
+  pre { background: #f4f4f4; padding: 10px; border-radius: 4px; }
+</style>
+</head>
+<body>
+<h1>Implementação de Segurança na Aplicação PHP</h1>
+
+<h2>Resumo das Implementações</h2>
+<p>Este projeto recebeu melhorias importantes para aumentar a segurança da aplicação, especialmente focadas em proteção contra ataques CSRF e controle de acesso para usuários autenticados.</p>
+
+<hr />
+
+<h2>Funcionalidades Implementadas</h2>
+
+<h3>1. Proteção contra Ataques CSRF</h3>
+<ul>
+  <li>Criação do helper <code>Funcoes/csrf_helper.php</code> para geração e validação de tokens CSRF.</li>
+  <li>Inclusão do token CSRF em todos os formulários importantes, como:
+    <ul>
+      <li>Formulário de login (<code>index.php</code>)</li>
+      <li>Formulário de cadastro/edição de usuários (<code>View/usuario/usuario.php</code>)</li>
+    </ul>
+  </li>
+  <li>Validação do token CSRF no backend para todas as requisições que alteram dados:
+    <ul>
+      <li><code>Funcoes/process_login.php</code> (login)</li>
+      <li><code>Funcoes/usuario.php</code> (cadastro/edição de usuários)</li>
+    </ul>
+  </li>
+</ul>
+
+<h3>2. Restrição de Acesso para Usuários Não Autenticados</h3>
+<ul>
+  <li>Criação do helper <code>Funcoes/auth_helper.php</code> para centralizar a verificação de autenticação.</li>
+  <li>Inclusão da verificação de login em arquivos sensíveis para garantir que apenas usuários autenticados possam acessá-los:
+    <ul>
+      <li><code>Funcoes/usuario.php</code></li>
+      <li><code>View/usuario/listarUsuarios.php</code></li>
+      <li><code>View/usuario/usuario.php</code></li>
+    </ul>
+  </li>
+  <li>Redirecionamento para a página de login (<code>index.php</code>) caso o usuário não esteja autenticado.</li>
+</ul>
+
+<h3>3. Testes Realizados</h3>
+<ul>
+  <li>Testes completos cobrindo:
+    <ul>
+      <li>Fluxo de login com token CSRF válido e inválido.</li>
+      <li>Acesso restrito a páginas protegidas sem autenticação.</li>
+      <li>Fluxo de cadastro/edição de usuários com validação CSRF.</li>
+      <li>Cenários de erro e sucesso para ambos os formulários.</li>
+    </ul>
+  </li>
+</ul>
+
+<hr />
+
+<h2>Como Utilizar</h2>
+<ul>
+  <li>Ao iniciar a aplicação, o usuário deve realizar login para acessar as páginas protegidas.</li>
+  <li>Todos os formulários que alteram dados possuem proteção CSRF automática.</li>
+  <li>Caso o token CSRF esteja ausente ou inválido, a requisição será rejeitada.</li>
+  <li>Usuários não autenticados são redirecionados para a página de login ao tentar acessar páginas protegidas.</li>
+</ul>
+
+<hr />
+
+<h2>Arquivos Principais Modificados/Adicionados</h2>
+<ul>
+  <li><code>Funcoes/csrf_helper.php</code> - Helper para geração e validação de tokens CSRF.</li>
+  <li><code>Funcoes/auth_helper.php</code> - Helper para verificação de autenticação.</li>
+  <li><code>index.php</code> - Formulário de login com token CSRF.</li>
+  <li><code>Funcoes/process_login.php</code> - Validação do token CSRF no login.</li>
+  <li><code>Funcoes/usuario.php</code> - Validação do token CSRF e verificação de autenticação para cadastro/edição.</li>
+  <li><code>View/usuario/usuario.php</code> - Inclusão do token CSRF no formulário de cadastro/edição.</li>
+  <li><code>View/usuario/listarUsuarios.php</code> - Restrição de acesso para usuários autenticados.</li>
+</ul>
+
+<hr />
+
+<h2>Considerações Finais</h2>
+<p>Estas melhorias aumentam significativamente a segurança da aplicação, prevenindo ataques CSRF e garantindo que apenas usuários autenticados possam acessar áreas restritas.</p>
+<p>Para futuras melhorias, recomenda-se:</p>
+<ul>
+  <li>Implementar logout seguro.</li>
+  <li>Adicionar controle de permissões por tipo de usuário.</li>
+  <li>Monitorar sessões e implementar timeout de sessão.</li>
+</ul>
+
+</body>
+</html>

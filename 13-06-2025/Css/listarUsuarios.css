@@ -1,0 +1,104 @@
+/* Estilos profissionais para a página listarUsuarios */
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f8f9fa;
+    color: #343a40;
+}
+
+h1 {
+    color: #007bff;
+    margin-bottom: 20px;
+    font-weight: 700;
+    text-align: center;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.1);
+}
+
+.btn-add {
+    padding: 10px 20px;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+    display: inline-block;
+    margin-bottom: 15px;
+    background-color: #28a745;
+}
+
+.btn-add:hover {
+    background-color: #218838;
+}
+
+#example a {
+    color: #007b77;
+    text-decoration: none;
+}
+
+#example a:hover {
+    text-decoration: underline;
+}
+
+#example {
+    width: 100% !important;
+    border-collapse: separate !important;
+    border-spacing: 0 10px !important;
+}
+
+#example thead tr {
+    background-color: #007bff;
+    color: white;
+    font-weight: 600;
+    border-radius: 8px;
+}
+
+#example tbody tr {
+    background-color: #f1f3f5;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+}
+
+#example tbody tr:hover {
+    background-color: #e9ecef;
+}
+
+#example td, #example th {
+    padding: 12px 15px;
+    text-align: left;
+    vertical-align: middle;
+}
+
+#example a {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+#example a:hover {
+    text-decoration: underline;
+}
+
+.btn-del {
+    background-color: #dc3545;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 5px;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    text-decoration: none;
+}
+
+.btn-del:hover {
+    background-color: #a71d2a;
+    color: white;
+}
